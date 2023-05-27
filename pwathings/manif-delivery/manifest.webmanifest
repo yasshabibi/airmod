@@ -1,0 +1,15 @@
+{
+    "background_color": "white",
+    "description": "It's Airmod!",
+    "display": "fullscreen",
+    "icons": [
+      {
+        "src": "/pwathings/icon/AIRMOD DELIVERY.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "name": "Airmod delivery",
+    "short_name": "Airmod delivery",
+    "start_url": "/storage/delivery/index.html"
+  }

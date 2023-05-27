@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Paramètres client</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="parametre_pro.css" />
+    <script src="https://kit.fontawesome.com/f73da58af1.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Profils et Paramètres</h1>
+
+    </div>
+
+    <div class="main">
+
+        <div class="profil">
+            <div>
+                <h1 class="nom_profil" id="nom_profil"> Emily PETIT</h1>
+                <h2 class="age_profil" id="age_profil"> <span>0</span> ans</h2>
+            </div>
+            <div>
+                <h2 class="duree_client">Cliente Airmod depuis </h2>
+                <h2 class="duree_client"><span> 0 mois </span></h2>
+            </div>
+            
+
+            <div class="modif">
+                <div class="open-btn">
+                    <button class="open-button" onclick="openForm()"><h2 class="modifications">modifer les informations</h2></button>
+                </div>
+
+                <div class="modif-popup">
+                    <div class="form-popup" id="popupForm">
+
+                        <form name="modification" class="form-container">
+
+                            <label for="name">
+                                      <strong>Nom</strong>
+                                    </label>
+                            <input type="text" id="nom" placeholder="Votre nom" name="name" value="" required/>
+
+                            <label for="firstname">
+                                    <strong>Prénom</strong>
+                                  </label>
+                            <input type="text" id="firstname" placeholder="Votre prénom" name="firstname" value="" required/>
+
+                            <label for="username">
+                                      <strong>Nom d'utilisateur</strong>
+                                    </label>
+                            <input type="text" id="pseudo" placeholder="Votre pseudo" name="pseudo" value="" requirede/>
+
+                            <label for="age">
+                                      <strong>Âge</strong>
+                                    </label>
+                            <input type="text" id="age" placeholder="Votre age" name="age" value="" required/>
+
+                            <label for="tel">
+                                      <strong>Numéro de téléphone</strong>
+                                    </label>
+                            <input type="text" id="tel" placeholder="Votre numéro" name="tel" value="" required/>
+
+                            <label for="adresse">
+                                    <strong>Adresse</strong>
+                                  </label>
+                            <input type="text" id="adresse" placeholder="Votre adresse" name="adresse" value="" required/>
+
+
+                            <button type="button" class="btn" onclick="confirmation();closeForm()">Confirmer</button>
+                            <button type="button" class="cancel" onclick="closeForm()"><i class="fa-solid fa-xmark"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="informations">
+
+            <div class="titre_informations">
+                <h1>Informations Personnelle</h1>
+            </div>
+
+
+            <div class="grid_informations">
+
+
+                <i id="phone" class="fa-solid fa-phone"></i>
+                <h2>Numéro de téléphone</h2> <span><h2 id="tel_profil"></h2></span>
+                <i id="world" class="fa-solid fa-globe"></i>
+                <h2>Langue</h2> <span> <h2 id="langue_profil">Français</h2></span>
+                <i id="adress" class="fa-solid fa-house-chimney"> </i>
+                <h2>Adresse</h2> <span><h2 id="adresse_profil"></h2></span>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <div class="nav">
+        <ul>
+            <a href="index.html">
+                <li><i class="fa-solid fa-house-chimney"></i> </li>
+            </a>
+
+            <a href="scan.html">
+                <li> <i class="fa-solid fa-qrcode"></i> </li>
+            </a>
+
+            <a href="parametre_client.html">
+                <li> <i class="fa-solid fa-user" style="color: #FF8133;"></i> </li>
+            </a>
+        </ul>
+    </div>
+
+</body>

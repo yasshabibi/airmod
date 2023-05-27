@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="shop_informations.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a2c903ab43.js" crossorigin="anonymous"></script>
+    <title>preview</title>
+</head>
+
+
+
+<script>
+
+    window.onload = () => {
+        let params = (new URL(document.location)).searchParams;
+        let id = params.get("id");
+
+
+        $.getJSON("/agency/" + id, function(dd) {
+            $("#iframe-maps").attr('src', "https://www.google.com/maps/embed/v1/place?key=AIzaSyAdpF3FvLbP9Q2FbHuSOcMmhU5PwHsB3KE&q=" + dd.pos.lon + "," + dd.pos.lat + "&zoom=18");
+            $("#main-name").html(dd.name);
+            $("#s-main-name").html(dd.name);
+            $(".description").html(dd.description);
+            $("#type").html(dd.type);
+            $("#phone").html(dd.phone);
+            $("#adresse").html(dd.adresse);
+            $("#mail").html(dd.mail);
+
+
+        });
+
+    }
+
+    $.getJSON('/agency/00dc6466bcfab2a257c86bd6076fa60baf03863c', function(data) {
+        let i = 0;
+        data.schedules.forEach(d => {
+            if (d.Openning) {
+                let morn = document.querySelectorAll('.matin td');
+                morn[i].innerHTML = d["Openning"] == null ? "Closed" : d["Openning"]+"h";
+        
+                morn[i].setAttribute("style", "color:#000000");
+
+                let aftn = document.querySelectorAll('.aprem td');
+                aftn[i].setAttribute("style", "color:#000000");
+                aftn[i].innerHTML = d["Closing"] == null ? "Closed" : d["Closing"]+"h";
+            }
+            else {
+                let morn = document.querySelectorAll('.matin td');
+                morn[i].setAttribute("style", "color:#FF8133");
+
+                let aftn = document.querySelectorAll('.aprem td');
+                aftn[i].setAttribute("style", "color:#FF8133");
+            }
+            i++;
+        }); 
+        // window.onload=function(){
+        // <!-- name, type, description, adresse, phone, service, mail -->
+
+
+        //   var infoContainer = document.getElementsByClassName("informations_container");
+        //   var mapContainer = document.getElementsByClassName("map_container");
+        //   var moreInfo = document.getElementById("more_info");
+
+        //   console.log(moreInfo);
+        //   console.log(mapContainer);
+        //   console.log(moreInfo);
+
+
+
+
+        //   moreInfo.addEventListener("click", () =>{
+
+        //     infoContainer.style.visibility ="visible";
+        //     mapContainer.style.visibility = "hidden";
+        //   });
+        
+    
+    
+});
+</script>
+
+<body>
+    <div class="shop_preview">
+        <div class="title_navbar">
+            <div class="elements">
+                <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
+                <div class="app_name">
+                    <span>AIRMOD</span>
+                    <span>APP</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar">
+        <div class="navbar_content">
+            <a href="index.html"><i class="fa-solid fa-house"></i></a>
+            <a href="recap.html"><i class="fa-solid fa-list"></i></a>
+            <a href="parametre_client.html"><i class="fa-solid fa-user"></i></a>
+        </div>
+    </div>
+    <div class="tagsbar">
+        <button id="image_button">
+        <span>01</span>
+        <i class="fa-solid fa-images"></i>
+      </button>
+        <div class="tags">
+            <span><p id="type">Loading...</p></span>
+        </div>
+    </div>
+    <div class="shop_content">
+        <div class="contents">
+            <div class="shop_name">
+                <span id="main-name">Loading...</span>
+                <!-- <span>ouvert</span> -->
+            </div>
+            <div class="shop_status">cette boutique est partenaire avec Airmod</div>
+            <div class="informations_container" style="visibility: visible">
+                <span>Description de la boutique</span>
+                <div class="description">
+                    Loading...
+                </div>
+                <div class="useful_informations">
+                    <span>Informations pratiques</span>
+                    <span id="s-main-name">Loading...</span>
+                    <span id="phone">Loading...</span>
+                    <span id="adresse">Loading...</span>
+                    <span id="mail">Loading...</span>
+                </div>
+            </div>
+            <div class="map_container" style="visibility: visible">
+                <iframe id="iframe-maps" width="100%" height="400" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="info">
+                <table class="table">
+                    <thead>
+                        <tr class="horaire">
+                            <th>lundi</th>
+                            <th>mardi</th>
+                            <th>mercredi</th>
+                            <th>jeudi</th>
+                            <th>vendredi</th>
+                            <th>samedi</th>
+                            <th>dimanche</th>
+                        </tr>
+                    </thead>
+                    <tbody class="matin">
+                        <tr>
+                            <td>ferme</td>
+                            <td>ferme</td>
+                            <td>ferme</td>
+                            <td>ferme</td>
+                            <td>ferme</td>
+                            <td>ferme</td>
+                            <td>ferme</td>
+                        </tr>
+                    </tbody>
+                    <tfoot class="aprem">
+                        <tr>
+                            <td>ferme</td>
+                            <td>ferme</td>
+                            <td>ferme</td>
+                            <td>ferme</td>
+                            <td>ferme</td>
+                            <td>ferme</td>
+                            <td>ferme</td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="../seller/script.js"></script>
+</html>

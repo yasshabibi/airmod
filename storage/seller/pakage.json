@@ -1,0 +1,16 @@
+{
+    "name": "qr-code-scanner",
+    "version": "1.0.0",
+    "description": "",
+    "main": "scan.html",
+    "scripts": {
+      "start": "parcel scan.html --open",
+      "build": "parcel build scan.html"
+    },
+    "dependencies": {},
+    "devDependencies": {
+      "@babel/core": "7.2.0",
+      "parcel-bundler": "^1.6.1"
+    },
+    "keywords": []
+  }

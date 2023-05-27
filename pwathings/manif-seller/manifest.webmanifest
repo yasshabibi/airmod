@@ -1,0 +1,15 @@
+{
+    "background_color": "white",
+    "description": "It's Airmod!",
+    "display": "fullscreen",
+    "icons": [
+      {
+        "src": "/pwathings/icon/AIRMOD PRO.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "name": "Airmod Pro",
+    "short_name": "Airmod Pro",
+    "start_url": "/storage/seller/index.html"
+  }

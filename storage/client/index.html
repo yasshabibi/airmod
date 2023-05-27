@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>accueil client</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/cd6b6fe4f8.js" crossorigin="anonymous"></script>
+    <!-- manifest -->
+    <link rel="manifest" href="/pwathings/manif-client/manifest.webmanifest">
+
+    <script>
+        function Search() {
+            let val = $("input.search").val();
+            $.getJSON('/search?q=' + val, function(data) {
+                var base = document.getElementById("commerces");
+                base.innerHTML = "";
+                data.forEach(s => {
+                    $.getJSON("/agency/" + s.id, function(dd) {
+                        var el = document.createElement("div")
+                        base.appendChild(el)
+                        el.innerHTML = `
+                        <fieldset class="commerce">
+                            <a style="color: inherit;display: inherit;text-decoration: inherit;" href="/storage/client/shop_informations.html?id=` + s.id + `">
+                                <legend>` + dd.type + `</legend>
+                                
+                                <div class="picture">
+                                    <img src="` + dd.banner + `" alt="image du commerce" />
+
+                                </div>
+                                <div class="description">
+                                    <div>
+                                        <p>` + dd.name + `</p>
+                                    </div>
+                                    <div maxlength="50">
+                                        <span>` + dd.description + `</span>
+                                    </div>
+
+                                    
+                                </div>
+                            </a>
+                        </fieldset>
+                        `
+
+                    })
+                });
+            });
+        }
+        window.onload = () => Search();
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <img src="/storage/assets/logo.png" alt="logo">
+        <p>
+            AIRMOD<span> APP</span>
+        </p>
+    </div>
+
+    <div class="allbox">
+        <div class="boxSearchTag">
+            <div class="boxContainer">
+                <table class="elementsContainer">
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="Search..." class="search" onkeyup="Search()">
+                        </td>
+                        <td>
+                            <a href="#"><span class="material-icons">search</span></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+    <section>
+
+
+        <div id="commerces">
+
+
+
+        </div>
+
+    </section>
+
+    </div>
+    <fieldset class="nav">
+        <a href="create_commande.html">
+            <legend><button>Ajouter une commande</button></legend>
+        </a>
+        <ul>
+            <a href="index.html">
+                <li><i class="fa-solid fa-house-chimney" style="color: #8AD534;"></i> </li>
+            </a>
+
+            <a href="recap.html">
+                <li><i class="fa-solid fa-list"></i></li>
+            </a>
+
+            <a href="parametre_client.html">
+                <li> <i class="fa-solid fa-user"></i> </li>
+            </a>
+        </ul>
+    </fieldset>
+    <!-- js pwathings -->
+    <script src="/pwathings/client.js"></script>
+</body>
+
+</html>

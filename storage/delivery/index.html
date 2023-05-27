@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>acceuil delivery</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/cd6b6fe4f8.js" crossorigin="anonymous"></script>
+    <!-- manifest -->
+    <link rel="manifest" href="/pwathings/manif-delivery/manifest.webmanifest">
+
+    <script>
+        function Search() {
+
+            $.getJSON('/orders/progress/Pending', function(data) {
+                var base = document.getElementById("commerces");
+                base.innerHTML = "";
+                data.forEach(s => {
+                    $.getJSON("/agency/" + s.id, function(dd) {
+                        var el = document.createElement("div")
+                        base.appendChild(el)
+                        console.log(data)
+                        s.track.forEach(dd => {
+                            console.log(dd)
+                            el.innerHTML = `
+                                <div class="commerce">
+                                    <div class="picture">
+                                        <img src="` + dd.banner + `" alt="image du client" />
+
+                                    </div>
+                                    <div class="description">
+                                            <p><span>` + s.track.length + `</span>  boutiques</p>
+                                    </div>
+                                    <div  class ="arrow">
+                                        <i class="fa-solid fa-angle-right"></i>
+                                    </div>
+                                </div>
+                                
+                            `
+                        });
+                    });
+                });
+            });
+        }
+        window.onload = () => Search();
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <img src="/storage/assets/logo.png" alt="logo">
+        <p>
+            AIRMOD<span> delivery</span>
+        </p>
+    </div>
+
+    <section>
+
+        <div id="commerces">
+
+        </div>
+
+    </section>
+    </div>
+    <div class="nav">
+        <ul>
+            <a href="index.html">
+                <li><i class="fa-solid fa-house-chimney" style="color: #157A6E;" ></i> </li>
+            </a>
+
+            <a href="recu.html">
+                <li> <i class="fa-solid fa-list"></i></li>
+            </a>
+
+            <a href="parametre_livreur.html">
+                <li> <i class="fa-solid fa-user"></i> </li>
+            </a>
+        </ul>
+    </div>
+    <!-- js pwathings -->
+    <script src="/pwathings/delivery.js"></script>
+</body>
+
+</html>

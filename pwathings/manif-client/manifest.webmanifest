@@ -1,0 +1,15 @@
+{
+    "background_color": "white",
+    "description": "It's Airmod!",
+    "display": "fullscreen",
+    "icons": [
+      {
+        "src": "/pwathings/icon/AIRMOD APP.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "name": "Airmod app",
+    "short_name": "Airmod app",
+    "start_url": "/storage/client/index.html"
+  }

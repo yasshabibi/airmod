@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(120deg,#8AD534, #2EDCC7);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  right: 10px;
+  transform: translate(0%, -50%);
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 6px 5px -1px rgba(0,0,0,0.25);
+}
+
+.center h1 {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 6.5vw;
+  color: white;
+  background-color: #474747;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.center form {
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+
+form .txt_field {
+  position: relative;
+  border-bottom: 2px solid #2EDCC7;
+  margin: 30px 0;
+}
+
+.txt_field input {
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 3.5vw;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.txt_field label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: #2EDCC7;
+  transform: translateY(-50%);
+  font-size: 3.5vw;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.txt_field span::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #1B9D8E;
+  transition: .5s;
+}
+
+.txt_field input:focus ~ label,
+.txt_field input:valid ~ label {
+  top: -5px;
+  color: #1B9D8E;
+}
+
+.txt_field input:focus ~ span::before,
+.txt_field input:valid ~ span::before {
+  width: 100%;
+}
+
+.pass {
+  margin: 0px 5px 20px 5px;
+  color: #FF8133;
+  cursor: pointer;
+  font-size: 3.5vw;
+}
+
+.pass:hover {
+  text-decoration: underline;
+}
+
+input[type="submit"] {
+  width: 100%;
+  height: 50px;
+  border: 1px solid;
+  background: #1B9D8E;
+  border-radius: 25px;
+  font-size: 4.5vw;
+  color: #F5F5F5;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+}
+
+input[type="submit"]:hover {
+  border-color: #1B9D8E;
+  transition: .5s;
+}
+
+.signup_link {
+  margin: 30px 0;
+  text-align: center;
+  font-size: 3.5vw;
+  color: #666666;
+}
+
+.signup_link a {
+  color: #1B9D8E;
+  text-decoration: none;
+}
+
+.signup_link a:hover {
+  text-decoration: underline;
+}

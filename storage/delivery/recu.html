@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AIRMOD</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f932e93f4d.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/storage/delivery/style.css">
+
+</head>
+
+<body>
+    <div class="header">
+        <img src="/storage/assets/logo.png" alt="logo">
+        <p>
+            AIRMOD<span> PRO</span>
+        </p>
+    </div>
+
+    <div class="content_recu">
+        <h1>Récapitulatif</h1>
+        <div class="recap">
+            <div>
+                <p>L’orsque le livreur sera présent, n’oubliez pas (après avoir valider son identité) de faire scanner le qr code ci-dessous pour déclancher la livraison. </p>
+            </div>
+            <div>
+                <img src="" alt="">
+                <div>
+                    <span>livreur</span>
+                    <span>Baptiste pan</span>
+                </div>
+            </div>
+        </div>
+        <div id="qrcode">
+            <img src="/qrcodeGen?content=123456789.png">
+        </div>
+
+        <h1>numero de la commande</h1>
+        <div class="article">
+            <div>
+                <p><span>0</span> article</p>
+
+            </div>
+            <div>
+                <p>total:<span> 0€</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav">
+        <ul>
+            <a href="index.html">
+                <li><i class="fa-solid fa-house-chimney"></i> </li>
+            </a>
+            <a href="recu.html">
+                <li> <i class="fa-solid fa-list" style="color: #157A6E;"></i> </li>
+            </a>
+            <a href="parametre_livreur.html">
+                <li> <i class="fa-solid fa-user"></i> </li>
+            </a>
+        </ul>
+    </div>
+    <script>
+        $.getJSON('/orders/make', function(data) {
+            console.log(data.id);
+            document.getElementById("qrcode").innerHTML = '<img src="/qrcodeGen?content=987654321.png">';
+        });
+    </script>
+</body>
+
+</html>
